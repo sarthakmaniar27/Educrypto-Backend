@@ -17,15 +17,32 @@ class Student(models.Model):
     def __str__(self):
 	    return self.uid
 
-class StudentDocument(models.Model):
-	# def get_absolute_url(self):
-	# 	return reverse('post-detail',kwargs={'pk':self.pk})
-    student_uid=models.OneToOneField(Student,on_delete=models.CASCADE)
-    tenth_marksheet=models.CharField(max_length=200, blank=True)
-    twelfth_marksheet=models.CharField(max_length=200, blank=True)
-    leaving_certificate=models.CharField(max_length=200, blank=True)
-    cet_scorecard=models.CharField(max_length=200, blank=True)
-    aadhar_card=models.CharField(max_length=200, blank=True)
+
+
+
+class ShareKey(models.Model):
+    student_uid=models.CharField(max_length=200, blank=True)
+    atp=models.CharField(max_length=200, blank=True)
+    third_party=models.CharField(max_length=200, blank=True)
+    doc_type=models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-	    return self.student_uid.uid
+	    return self.third_party
+
+
+class Faculty(models.Model):
+    faculty_name=models.CharField(max_length=100)
+    faculty_fid=models.CharField(max_length=200, blank=True)
+    department=models.CharField(max_length=200, blank=True)
+    password=models.CharField(max_length=8,default='123456')
+    
+    def __str__(self):
+	    return self.faculty_name
+
+class FacultySubjectMap(models.Model):
+    faculty_fid=models.CharField(max_length=200, blank=True)
+    branch=models.CharField(max_length=200, blank=True)
+    subject=models.CharField(max_length=200, blank=True)
+    
+    def __str__(self):
+	    return self.faculty_fid+" "+self.branch

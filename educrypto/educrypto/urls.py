@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from admission.views import login
+from admission.views import login,share,validatethirdparty, facultylogin,getStudentBranch
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login.as_view(),name='login'),
+    path('share/', share.as_view(),name='share'),
+    path('validatethirdparty/', validatethirdparty.as_view(),name='validatethirdparty'),
+    path('facultylogin/', facultylogin.as_view(),name='facultylogin'),
+    path('getstudentbranch/', getStudentBranch.as_view(),name='getstudentbranch'),
 ]
