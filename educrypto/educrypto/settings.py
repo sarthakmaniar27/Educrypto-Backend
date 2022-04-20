@@ -31,6 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 CORS_ORIGIN_ALLOW_ALL=True
 
+CORS_ORIGIN_WHITELIST = [
+    'http://google.com',
+    'http://hostname.example.com',
+    'http://localhost:3000'
+    
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

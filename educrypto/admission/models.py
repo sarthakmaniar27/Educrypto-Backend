@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 class Student(models.Model):
-	# def get_absolute_url(self):
-	# 	return reverse('post-detail',kwargs={'pk':self.pk})
     name=models.CharField(max_length=100)
     uid=models.CharField(max_length=100)
     password=models.CharField(max_length=8,default='123456')
@@ -46,3 +44,13 @@ class FacultySubjectMap(models.Model):
     
     def __str__(self):
 	    return self.faculty_fid+" "+self.branch
+
+class StudentGrade(models.Model):
+        student_uid=models.CharField(max_length=200, blank=True)
+        testName=models.CharField(max_length=200, blank=True)
+        branch=models.CharField(max_length=200, blank=True)
+        subject=models.CharField(max_length=200, blank=True)
+        marks=models.IntegerField()
+
+
+    

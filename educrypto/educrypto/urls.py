@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from admission.views import login,share,validatethirdparty, facultylogin,getStudentBranch
+from admission.views import login,share,validatethirdparty, facultylogin,getStudentBranch,gradeTest,checkIfGraded,createTestReport,createSubjectReport,createClassReport
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login.as_view(),name='login'),
@@ -23,4 +23,13 @@ urlpatterns = [
     path('validatethirdparty/', validatethirdparty.as_view(),name='validatethirdparty'),
     path('facultylogin/', facultylogin.as_view(),name='facultylogin'),
     path('getstudentbranch/', getStudentBranch.as_view(),name='getstudentbranch'),
+    path('gradetest/', gradeTest.as_view(),name='gradetest'),
+    path('checkifgraded/', checkIfGraded.as_view(),name='checkifgraded'),
+    path('createtestreport/', createTestReport.as_view(),name='createtestreport'),
+    path('createsubjectreport/', createSubjectReport.as_view(),name='createsubjectreport'),
+    path('createclassreport/', createClassReport.as_view(),name='createclassreport'),
+
+
+
+    
 ]
