@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
+
+from datetime import date
+
 # Create your models here.
 class Student(models.Model):
     name=models.CharField(max_length=100)
@@ -10,7 +14,8 @@ class Student(models.Model):
     year=models.CharField(max_length=100)
     phone=models.CharField(max_length=100)
     address=models.TextField()
-    dob=models.DateField()
+    dob=models.DateField(validators=[MaxValueValidator(date.today())])
+
 
     def __str__(self):
 	    return self.uid
